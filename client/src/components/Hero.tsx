@@ -8,38 +8,38 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-16 overflow-hidden crt-effect"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden -z-10">
-        <div className="absolute top-0 -right-10 w-72 h-72 bg-primary/10 dark:bg-primary/20 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 -left-10 w-72 h-72 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full filter blur-3xl"></div>
+      {/* Simple artistic background */}
+      <div className="absolute inset-0 overflow-hidden -z-10 bg-circuit-pattern">
+        <div className="absolute top-0 -right-10 w-72 h-72 bg-primary/10 dark:bg-primary/20 rounded-full"></div>
+        <div className="absolute bottom-0 -left-10 w-72 h-72 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full"></div>
       </div>
       
       {/* Floating tech elements */}
       <div className="absolute inset-0 -z-5 opacity-20 dark:opacity-30 overflow-hidden">
         <motion.div 
           className="absolute top-1/4 left-10"
-          animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+          animate={{ y: [0, -15, 0] }}
           transition={{ duration: 6, repeat: Infinity }}
         >
           <Terminal size={48} className="text-primary" />
         </motion.div>
         <motion.div 
           className="absolute top-2/3 right-10"
-          animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+          animate={{ y: [0, 15, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
         >
           <Database size={40} className="text-indigo-500" />
         </motion.div>
         <motion.div 
           className="absolute top-1/3 right-1/4"
-          animate={{ y: [0, 10, 0], rotate: [0, 10, 0] }}
+          animate={{ y: [0, 10, 0] }}
           transition={{ duration: 7, repeat: Infinity }}
         >
           <Code size={36} className="text-primary" />
         </motion.div>
         <motion.div 
           className="absolute bottom-1/3 left-1/4"
-          animate={{ y: [0, -10, 0], rotate: [0, -8, 0] }}
+          animate={{ y: [0, -10, 0] }}
           transition={{ duration: 5, repeat: Infinity }}
         >
           <Braces size={32} className="text-indigo-600" />
@@ -55,18 +55,35 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
             className="w-full md:w-3/5 text-center md:text-left"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Hi, I'm{" "}
-              <span className="gradient-tech glitch-effect" data-text="Insiya Raja">Insiya Raja</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 relative">
+              <span className="absolute -top-6 left-0 md:left-4 text-base text-primary/80 font-mono tracking-wider">&lt;developer&gt;</span>
+              <span>Hi, I'm{" "}</span>
+              <span className="gradient-tech glitch-effect text-glow" data-text="Insiya Raja">Insiya Raja</span>
+              <span className="absolute -bottom-6 right-0 md:right-4 text-base text-primary/80 font-mono tracking-wider">&lt;/developer&gt;</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 dark:text-gray-300 mb-6">
-              <span className="matrix-code">Computer Science Student</span> & <span className="text-primary">Data Scientist</span>
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto md:mx-0">
-              Passionate about leveraging data science and AI to solve complex problems.
-              Seeking to apply my skills in cloud computing, machine learning, and data analysis
-              to drive innovation and insights.
-            </p>
+            
+            <motion.h2 
+              className="text-2xl md:text-3xl font-medium mb-6 mt-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <span className="matrix-code neo-brutalism p-1 text-cyan-700 dark:text-cyan-400 bg-slate-100/80 dark:bg-slate-800/80">Computer Science Student</span>
+              <span className="mx-2">&</span>
+              <span className="typing-effect text-primary font-semibold inline-block">Data Scientist</span>
+            </motion.h2>
+            
+            <motion.p 
+              className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto md:mx-0 relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <span className="absolute -left-4 top-0 text-primary text-3xl opacity-20">{"{{"}</span>
+              Passionate about leveraging <span className="font-medium text-primary">data science</span> and <span className="font-medium text-indigo-500">AI</span> to solve complex problems.
+              Seeking to apply my skills in <span className="font-medium text-blue-500">cloud computing</span>, <span className="font-medium text-purple-500">machine learning</span>, and <span className="font-medium text-green-500">data analysis</span> to drive innovation and insights.
+              <span className="absolute -right-4 bottom-0 text-primary text-3xl opacity-20">{"}}"}</span>
+            </motion.p>
 
             {/* Contact information */}
             <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8">

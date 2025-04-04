@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Simple artistic effects and animations */
+@layer components {
+  .crt-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-circuit-pattern {
+    position: relative;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+  }
+
+  .hover-card-effect {
+    transition: all 0.3s ease;
+  }
+  
+  .hover-card-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Neo-brutalism simplified */
+  .neo-brutalism {
+    box-shadow: 3px 3px 0 #000;
+    transition: all 0.2s ease;
+  }
+  
+  .neo-brutalism:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+  }
+
+  /* Container with auto margins and padding - used throughout the site */
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 222.2 84% 4.9%;

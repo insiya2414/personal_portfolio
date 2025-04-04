@@ -22,6 +22,53 @@ export const EDUCATION = {
   ]
 };
 
+export const COURSEWORK = [
+  {
+    id: 1,
+    name: "Data Science & Machine Learning",
+    courses: [
+      "Advanced Data Science",
+      "Machine Learning Algorithms",
+      "Neural Networks & Deep Learning",
+      "Statistical Analysis",
+      "Big Data Analytics"
+    ]
+  },
+  {
+    id: 2,
+    name: "Computer Science Fundamentals",
+    courses: [
+      "Data Structures & Algorithms",
+      "Operating Systems",
+      "Database Design & Management",
+      "Computer Networks",
+      "Software Engineering"
+    ]
+  },
+  {
+    id: 3,
+    name: "Mathematics & Analytics",
+    courses: [
+      "Linear Algebra",
+      "Calculus I & II",
+      "Discrete Mathematics",
+      "Probability & Statistics",
+      "Numerical Analysis"
+    ]
+  },
+  {
+    id: 4,
+    name: "Specialized Topics",
+    courses: [
+      "Cloud Computing",
+      "Computer Vision",
+      "Natural Language Processing",
+      "Data Visualization",
+      "Ethics in AI"
+    ]
+  }
+];
+
 export const SKILLS = {
   languages: ["Python", "SQL", "Java", "C++", "R", "JavaScript", "HTML5", "CSS3"],
   dataAnalysis: [
@@ -136,6 +183,7 @@ export const MENU_ITEMS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
+  { label: "Coursework", href: "#coursework" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Activities", href: "#activities" },
