@@ -2,17 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 217.2 91.2% 59.8%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 224.3 76.3% 48%;
+}
+
 @layer base {
+  :root {
+    --matrix-effect-color: rgba(0, 255, 170, 0.2);
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground scroll-smooth;
+    background-image: 
+      repeating-linear-gradient(90deg, transparent, transparent 50px, var(--matrix-effect-color) 50px, var(--matrix-effect-color) 51px),
+      repeating-linear-gradient(0deg, transparent, transparent 50px, var(--matrix-effect-color) 50px, var(--matrix-effect-color) 51px);
+  }
+
+  .dark body {
+    --matrix-effect-color: rgba(0, 255, 170, 0.1);
+    background-color: hsl(220, 40%, 8%);
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-medium;
+  }
+
+  /* Tech-themed styling for text selection */
+  ::selection {
+    @apply bg-primary/30 text-foreground;
   }
 }
 
@@ -21,8 +83,74 @@
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-indigo-600;
   }
 
+  /* Tech-themed gradient effect */
+  .gradient-tech {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-cyan-400 via-primary to-purple-500;
+  }
+
+  /* CRT screen effect for dark mode */
+  .dark .crt-effect {
+    @apply relative overflow-hidden;
+    box-shadow: 0 0 10px rgba(0, 255, 170, 0.3);
+  }
+
+  .dark .crt-effect::before {
+    content: " ";
+    @apply absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent pointer-events-none;
+    background-size: 100% 2px;
+    animation: scanlines 1.5s linear infinite;
+    opacity: 0.3;
+  }
+
+  @keyframes scanlines {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100%; }
+  }
+
+  /* Digital glitch effect */
+  .glitch-effect {
+    position: relative;
+  }
+
+  .glitch-effect::before,
+  .glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+
+  .glitch-effect::before {
+    animation: glitch-effect 3s infinite;
+    color: #00ffaa;
+    left: 2px;
+  }
+
+  .glitch-effect::after {
+    animation: glitch-effect 2s infinite;
+    color: #ff00aa;
+    left: -2px;
+  }
+
+  @keyframes glitch-effect {
+    0% { opacity: 0; }
+    1% { opacity: 0.3; }
+    2% { opacity: 0; }
+    50% { opacity: 0; }
+    51% { opacity: 0.3; }
+    52% { opacity: 0; }
+    100% { opacity: 0; }
+  }
+
   .section {
-    @apply py-16 md:py-24;
+    @apply py-16 md:py-24 relative;
+  }
+
+  .dark .section {
+    @apply bg-opacity-95;
   }
 
   .container-custom {
@@ -45,8 +173,42 @@
     @apply px-6 py-3 bg-primary text-white rounded-md font-medium shadow-md hover:shadow-lg hover:bg-primary/90 transition-all duration-300;
   }
 
+  .btn-primary:hover {
+    box-shadow: 0 0 15px theme('colors.primary.DEFAULT');
+  }
+
   .btn-outline {
     @apply px-6 py-3 border border-primary text-primary rounded-md font-medium hover:bg-primary/10 transition-all duration-300;
+  }
+  
+  .btn-outline:hover {
+    box-shadow: 0 0 10px theme('colors.primary.DEFAULT');
+  }
+
+  /* Matrix-like code effect */
+  .matrix-code {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .matrix-code::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 255, 170, 0.2) 100%);
+    animation: matrix-rain 3s linear infinite;
+  }
+
+  @keyframes matrix-rain {
+    0% {
+      top: -100%;
+    }
+    100% {
+      top: 100%;
+    }
   }
 }
 
@@ -58,5 +220,36 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+  
+  /* Computer-sciency animations */
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Code typing effect */
+  .typing-effect {
+    width: 22ch;
+    animation: typing 3.5s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+  }
+      
+  @keyframes blink {
+    50% { border-color: transparent }
   }
 }

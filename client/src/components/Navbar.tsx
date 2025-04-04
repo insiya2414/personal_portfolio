@@ -3,7 +3,8 @@ import { Link, useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { MENU_ITEMS, PERSONAL_INFO } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,8 +34,8 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-2"
-          : "bg-transparent py-4"
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm py-2"
+          : "bg-transparent dark:bg-transparent py-4"
       }`}
     >
       <div className="container-custom">
@@ -79,21 +80,28 @@ const Navbar = () => {
             </a>
           </motion.nav>
 
-          {/* Mobile Menu Button */}
+          {/* Theme Toggle + Mobile Menu Button */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="md:hidden"
+            className="flex items-center gap-2"
           >
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X /> : <Menu />}
-            </Button>
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
+            
+            <div className="flex md:hidden items-center">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X /> : <Menu />}
+              </Button>
+            </div>
           </motion.div>
         </div>
       </div>
@@ -106,7 +114,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white/95 backdrop-blur-md"
+            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md"
           >
             <div className="container-custom py-4 flex flex-col space-y-3">
               {MENU_ITEMS.map((item, index) => (

@@ -1,17 +1,49 @@
 import { motion } from "framer-motion";
-import { GithubIcon, LinkedinIcon, Mail, MapPin } from "lucide-react";
+import { GithubIcon, LinkedinIcon, Mail, MapPin, Terminal, Code, Database, Braces } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/constants";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden"
+      className="relative min-h-screen flex items-center pt-16 overflow-hidden crt-effect"
     >
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden -z-10">
-        <div className="absolute top-0 -right-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 -left-10 w-72 h-72 bg-indigo-500/10 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-0 -right-10 w-72 h-72 bg-primary/10 dark:bg-primary/20 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 -left-10 w-72 h-72 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full filter blur-3xl"></div>
+      </div>
+      
+      {/* Floating tech elements */}
+      <div className="absolute inset-0 -z-5 opacity-20 dark:opacity-30 overflow-hidden">
+        <motion.div 
+          className="absolute top-1/4 left-10"
+          animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+        >
+          <Terminal size={48} className="text-primary" />
+        </motion.div>
+        <motion.div 
+          className="absolute top-2/3 right-10"
+          animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
+          transition={{ duration: 8, repeat: Infinity }}
+        >
+          <Database size={40} className="text-indigo-500" />
+        </motion.div>
+        <motion.div 
+          className="absolute top-1/3 right-1/4"
+          animate={{ y: [0, 10, 0], rotate: [0, 10, 0] }}
+          transition={{ duration: 7, repeat: Infinity }}
+        >
+          <Code size={36} className="text-primary" />
+        </motion.div>
+        <motion.div 
+          className="absolute bottom-1/3 left-1/4"
+          animate={{ y: [0, -10, 0], rotate: [0, -8, 0] }}
+          transition={{ duration: 5, repeat: Infinity }}
+        >
+          <Braces size={32} className="text-indigo-600" />
+        </motion.div>
       </div>
 
       <div className="container-custom">
@@ -25,10 +57,10 @@ const Hero = () => {
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
               Hi, I'm{" "}
-              <span className="gradient-text">Insiya Raja</span>
+              <span className="gradient-tech glitch-effect" data-text="Insiya Raja">Insiya Raja</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 mb-6">
-              Computer Science Student & Data Scientist
+            <h2 className="text-2xl md:text-3xl font-medium text-gray-700 dark:text-gray-300 mb-6">
+              <span className="matrix-code">Computer Science Student</span> & <span className="text-primary">Data Scientist</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto md:mx-0">
               Passionate about leveraging data science and AI to solve complex problems.
@@ -95,10 +127,29 @@ const Hero = () => {
                   transform="translate(100 100)"
                 />
               </svg>
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-lg">
-                {/* Replace with actual profile photo if available */}
-                <div className="w-full h-full bg-gradient-to-br from-primary to-indigo-700 flex items-center justify-center text-white text-6xl font-bold">
-                  IR
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
+                {/* Tech-themed profile avatar */}
+                <div className="w-full h-full bg-gradient-to-br from-primary to-indigo-700 dark:from-cyan-500 dark:to-blue-800 flex items-center justify-center text-white dark:text-cyan-100 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-full h-full absolute opacity-20">
+                      {/* Binary code background pattern */}
+                      <div className="absolute text-[10px] font-mono text-white/70 top-1/4 left-1/4">01001001 01010010</div>
+                      <div className="absolute text-[10px] font-mono text-white/70 bottom-1/4 right-1/4">10101010</div>
+                      <div className="absolute text-[10px] font-mono text-white/70 bottom-1/3 left-1/3">01001001</div>
+                    </div>
+                  </div>
+                  
+                  {/* Animated border effect */}
+                  <div className="absolute inset-0 rounded-full overflow-hidden">
+                    <div className="absolute inset-0 opacity-30 dark:opacity-60 animate-spin-slow rounded-full" 
+                      style={{ 
+                        border: '4px dashed rgba(255,255,255,0.5)', 
+                        animationDuration: '20s'
+                      }}>
+                    </div>
+                  </div>
+                  
+                  <span className="text-6xl font-bold relative z-10">IR</span>
                 </div>
               </div>
             </div>
