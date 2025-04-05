@@ -79,14 +79,14 @@ const Hero = () => {
             </h1>
             
             <motion.h2 
-              className="text-2xl md:text-3xl font-medium mb-6 mt-8"
+              className="text-2xl md:text-3xl font-medium mb-6 mt-8 flex flex-wrap items-center gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
               <span className="matrix-code neo-brutalism p-1 text-cyan-700 dark:text-cyan-400 bg-slate-100/80 dark:bg-slate-800/80">Computer Science Student</span>
-              <span className="mx-2">&</span>
-              <span className="typing-effect text-primary font-semibold inline-block">Data Scientist</span>
+              <span className="mx-1">&</span>
+              <span className="typing-effect text-primary font-semibold" style={{width: "29ch"}}>Aspiring Data Scientist</span>
             </motion.h2>
             
             <motion.p 

@@ -320,8 +320,8 @@
   
   /* Code typing effect */
   .typing-effect {
-    width: 22ch;
-    animation: typing 3.5s steps(22), blink .5s step-end infinite alternate;
+    width: 29ch;
+    animation: typing 4s steps(29), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
