@@ -1,53 +1,45 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
+import { useRef } from "react";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Skills from "@/components/Skills";
+import Coursework from "@/components/Coursework";
+import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
+import Activities from "@/components/Activities";
+import Contact from "@/components/Contact";
 
 export default function Home() {
+  const homeRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className="min-h-screen bg-background">
+    <motion.div
+      ref={homeRef}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-background"
+    >
       <Navbar />
       
-      <div className="pt-20 p-10">
-        <div id="home" className="py-20">
-          <h1 className="text-3xl font-bold mb-4">Insiya Raja Portfolio</h1>
-          <p className="mb-4">Welcome to my portfolio website.</p>
-          <Button>Test Button</Button>
-        </div>
-        
-        <div id="about" className="py-20">
-          <h2 className="text-2xl">About Section</h2>
-        </div>
-        
-        <div id="skills" className="py-20">
-          <h2 className="text-2xl">Skills Section</h2>
-        </div>
-        
-        <div id="coursework" className="py-20">
-          <h2 className="text-2xl">Coursework Section</h2>
-        </div>
-        
-        <div id="projects" className="py-20">
-          <h2 className="text-2xl">Projects Section</h2>
-        </div>
-        
-        <div id="experience" className="py-20">
-          <h2 className="text-2xl">Experience Section</h2>
-        </div>
-        
-        <div id="activities" className="py-20">
-          <h2 className="text-2xl">Activities Section</h2>
-        </div>
-        
-        <div id="contact" className="py-20">
-          <h2 className="text-2xl">Contact Section</h2>
-        </div>
-      </div>
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <Coursework />
+        <Projects />
+        <Experience />
+        <Activities />
+        <Contact />
+      </main>
       
-      <footer className="bg-gray-900 text-white py-6 mt-20">
-        <div className="text-center">
+      <footer className="bg-gray-900 text-white py-6">
+        <div className="container-custom text-center">
           <p>&copy; {new Date().getFullYear()} Insiya Raja. All Rights Reserved.</p>
         </div>
       </footer>
-    </div>
+    </motion.div>
   );
 }
