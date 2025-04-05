@@ -182,7 +182,12 @@ const Hero = () => {
                     </div>
                   </div>
                   
-                  <span className="text-6xl font-bold relative z-10">IR</span>
+                  {/* <span className="text-6xl font-bold relative z-10">IR</span> */}
+                  <img
+                      src="/profile.jpg"
+                      alt="Insiya Raja"
+                      className="relative z-10 w-36 h-36 rounded-full object-cover"
+                    />
                 </div>
               </div>
             </div>
