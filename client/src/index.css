@@ -228,15 +228,20 @@
   }
 
   .nav-link {
-    @apply relative px-3 py-1.5 text-sm font-medium transition-colors duration-300 hover:text-primary;
+    @apply px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-primary;
+    position: relative;
   }
 
   .nav-link-active {
-    @apply text-primary;
+    @apply text-primary font-semibold;
+    position: relative;
   }
-
-  .nav-link-active::after {
-    @apply content-[''] absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full;
+  
+  /* Active link indicator dot */
+  .nav-link-active::before {
+    content: '•';
+    @apply absolute -left-1 top-1/2 transform -translate-y-1/2 text-primary;
+    font-size: 1.2rem;
   }
 
   .btn-primary {

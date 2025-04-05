@@ -9,11 +9,27 @@ import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Simple scrollspy implementation
+      const sections = MENU_ITEMS.map(item => item.href.substring(1));
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the section is in view (with some buffer for better UX)
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -25,9 +41,10 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
-  // Check if a section is active based on URL hash
+  // Check if a section is active
   const isActive = (href: string) => {
-    return location === "/" && (location + href === "/" + href);
+    const section = href.substring(1); // Remove '#' from href
+    return section === activeSection;
   };
 
   return (
@@ -122,7 +139,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   className={`py-2 px-4 text-base hover:text-primary ${
-                    isActive(item.href) ? "text-primary font-medium" : ""
+                    isActive(item.href) ? "nav-link-active" : "text-muted-foreground"
                   }`}
                   onClick={handleLinkClick}
                 >
