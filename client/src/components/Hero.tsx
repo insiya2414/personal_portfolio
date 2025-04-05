@@ -182,18 +182,7 @@ const Hero = () => {
                     </div>
                   </div>
                   
-                  <div className="absolute inset-0 opacity-30 dark:opacity-60 animate-spin-slow rounded-full" 
-  style={{ 
-    border: '4px dashed rgba(255,255,255,0.5)', 
-    animationDuration: '20s'
-  }}>
-</div>
-
-<img
-  src="/profile.jpg"
-  alt="Insiya Raja"
-  className="w-40 h-40 rounded-full object-cover border-4 border-blue-400 relative z-10"
-/>
+                  <span className="text-6xl font-bold relative z-10">IR</span>
                 </div>
               </div>
             </div>
