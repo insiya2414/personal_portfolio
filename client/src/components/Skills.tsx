@@ -6,7 +6,7 @@ import { Code, Database, BookOpen, Server, Award } from "lucide-react";
 
 const Skills = () => {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section dark:text-gray-700">
       <div className="container-custom">
         <SectionTitle 
           title="Skills & Expertise" 

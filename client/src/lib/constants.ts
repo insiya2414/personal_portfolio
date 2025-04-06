@@ -3,9 +3,9 @@ export const PERSONAL_INFO = {
   name: "Insiya Raja",
   location: "San Marcos, TX",
   email: "rajainsiya24@gmail.com",
-  linkedin: "LinkedIn.com/in/insiya-raja24",
-  github: "GitHub.com/insiya2414",
-  website: "InsiyaRaja.com"
+  linkedin: "https://www.linkedin.com/in/insiya-raja24/",
+  github: "https://github.com/insiya2414",
+  website: "https://personal-portfolio-backend-hllu.onrender.com/"
 };
 
 export const EDUCATION = {

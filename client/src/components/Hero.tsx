@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import { GithubIcon, LinkedinIcon, Mail, MapPin, Terminal, Code, Database, Braces } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Terminal, Code, Database, Braces } from "lucide-react";
 import { PERSONAL_INFO } from "@/lib/constants";
-
+import profileImage from "./profile.jpg";
 const Hero = () => {
   return (
     <section
@@ -101,49 +101,59 @@ const Hero = () => {
               <span className="absolute -right-4 bottom-0 text-primary text-3xl opacity-20">{"}}"}</span>
             </motion.p>
 
-            {/* Contact information */}
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8">
-              <a
-                href={`mailto:${PERSONAL_INFO.email}`}
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <Mail size={18} />
-                <span>{PERSONAL_INFO.email}</span>
-              </a>
-              <a
-                href={`https://${PERSONAL_INFO.linkedin}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <LinkedinIcon size={18} />
-                <span>LinkedIn</span>
-              </a>
-              <a
-                href={`https://${PERSONAL_INFO.github}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
-                <GithubIcon size={18} />
-                <span>GitHub</span>
-              </a>
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <MapPin size={18} />
-                <span>{PERSONAL_INFO.location}</span>
-              </div>
-            </div>
+{/* Contact information */}
+<div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8 z-20 relative pointer-events-auto">
+  <a
+    href="mailto:rajainsiya24@gmail.com"
+    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+  >
+    <Mail size={18} />
+    <span className="cursor-pointer">rajainsiya24@gmail.com</span>
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/insiya-raja24/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+  >
+    <Linkedin size={18} />
+    <span className="cursor-pointer">LinkedIn</span>
+  </a>
+
+  <a
+    href="https://github.com/insiya2414"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+  >
+    <Github size={18} />
+    <span className="cursor-pointer">GitHub</span>
+  </a>
+
+  <div className="flex items-center gap-2 text-muted-foreground">
+    <MapPin size={18} />
+    <span>{PERSONAL_INFO.location}</span>
+  </div>
+</div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#contact" className="btn-primary">
-                Contact Me
-              </a>
-              <a href="#projects" className="btn-outline">
-                View My Projects
-              </a>
+            <div style={{ zIndex: 50 }} className="relative flex flex-wrap gap-4 justify-center md:justify-start">
+            <a 
+              href="#contact" 
+              className="btn-primary cursor-pointer"
+            >
+              Contact Me
+            </a>
+            <a 
+              href="#projects" 
+              className="btn-outline cursor-pointer"
+            >
+              View My Projects
+            </a>
+
             </div>
-          </motion.div>
+</motion.div>
 
           {/* Image illustration */}
           <motion.div
@@ -152,7 +162,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="w-full md:w-2/5 flex justify-center"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
+            <div className="relative w-64 h-64 md:w-80 md:h-80 pointer-events-none">
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 -z-10">
                 <path
                   fill="#4F56E5"
@@ -173,20 +183,21 @@ const Hero = () => {
                   </div>
                   
                   {/* Animated border effect */}
-                  <div className="absolute inset-0 rounded-full overflow-hidden">
-                    <div className="absolute inset-0 opacity-30 dark:opacity-60 animate-spin-slow rounded-full" 
-                      style={{ 
-                        border: '4px dashed rgba(255,255,255,0.5)', 
+                  <div className="absolute inset-0 rounded-full overflow-hidden z-20">
+                    <div
+                      className="absolute inset-0 animate-spin-slow rounded-full"
+                      style={{
+                        border: '4px dashed rgba(255,255,255,0.5)',
                         animationDuration: '20s'
-                      }}>
-                    </div>
+                      }}
+                    ></div>
                   </div>
                   
                   {/* <span className="text-6xl font-bold relative z-10">IR</span> */}
                   <img
-                      src="/profile.jpg"
-                      alt="Insiya Raja"
-                      className="relative z-10 w-36 h-36 rounded-full object-cover"
+                      src={profileImage}
+                      alt="Insiya Maad Raja"
+                      className="absolute inset-0 w-full h-full object-cover rounded-full z-10 pointer-events-auto"
                     />
                 </div>
               </div>

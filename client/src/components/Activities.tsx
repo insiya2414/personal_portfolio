@@ -5,7 +5,7 @@ import { Award, Check } from "lucide-react";
 
 const Activities = () => {
   return (
-    <section id="activities" className="section bg-gray-50">
+    <section id="activities" className="section bg-gray-50 dark:text-gray-500">
       <div className="container-custom">
         <SectionTitle 
           title="Activities & Achievements" 

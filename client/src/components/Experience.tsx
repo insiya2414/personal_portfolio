@@ -4,7 +4,7 @@ import ExperienceCard from "./ExperienceCard";
 
 const Experience = () => {
   return (
-    <section id="experience" className="section">
+    <section id="experience" className="section dark:text-gray-500">
       <div className="container-custom">
         <SectionTitle 
           title="Experience" 

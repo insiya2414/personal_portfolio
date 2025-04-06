@@ -74,9 +74,9 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="ml-4"
             >
-              <Button variant="outline" size="sm">
+              {/* <Button variant="outline" size="sm">
                 Resume
-              </Button>
+              </Button> */}
             </a>
           </motion.nav>
 

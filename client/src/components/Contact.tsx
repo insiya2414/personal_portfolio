@@ -62,7 +62,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section">
+    <section id="contact" className="section dark:text-gray-500">
       <div className="container-custom">
         <SectionTitle 
           title="Get In Touch" 
