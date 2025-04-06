@@ -21,45 +21,82 @@ const Contact = () => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+  
     try {
-      // Simple form validation
       if (!formData.name || !formData.email || !formData.message) {
         throw new Error("Please fill in all fields");
       }
-
-      // In a real implementation, this would submit to an API
-      // await apiRequest("POST", "/api/contact", formData);
-
-      // Simulate API call with timeout
-      await new Promise(resolve => setTimeout(resolve, 1000));
-
+  
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
+      const data = await res.json();
+  
+      if (!res.ok) throw new Error(data.message || "Something went wrong");
+  
       toast({
         title: "Message sent!",
         description: "Thank you for reaching out. I'll get back to you soon.",
-        variant: "default",
       });
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
+  
+      setFormData({ name: "", email: "", message: "" });
+  
     } catch (error) {
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+        description: error instanceof Error ? error.message : "Something went wrong",
         variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
+  
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+
+  //   try {
+  //     // Simple form validation
+  //     if (!formData.name || !formData.email || !formData.message) {
+  //       throw new Error("Please fill in all fields");
+  //     }
+
+  //     // In a real implementation, this would submit to an API
+  //     // await apiRequest("POST", "/api/contact", formData);
+
+  //     // Simulate API call with timeout
+  //     await new Promise(resolve => setTimeout(resolve, 1000));
+
+  //     toast({
+  //       title: "Message sent!",
+  //       description: "Thank you for reaching out. I'll get back to you soon.",
+  //       variant: "default",
+  //     });
+
+  //     // Reset form
+  //     setFormData({
+  //       name: "",
+  //       email: "",
+  //       message: "",
+  //     });
+  //   } catch (error) {
+  //     toast({
+  //       title: "Error",
+  //       description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+  //       variant: "destructive",
+  //     });
+  //   } finally {
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   return (
     <section id="contact" className="section dark:text-gray-500">

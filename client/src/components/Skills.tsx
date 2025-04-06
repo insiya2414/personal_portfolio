@@ -56,11 +56,11 @@ const Skills = () => {
             
             <div className="space-y-4">
               {[
-                { name: "Data Science & Analytics", percentage: 90 },
-                { name: "Machine Learning", percentage: 85 },
-                { name: "Cloud Computing (Azure, AWS)", percentage: 80 },
+                { name: "Data Science & Analytics", percentage: 75 },
+                { name: "Machine Learning", percentage: 60 },
+                { name: "Cloud Computing (Azure, AWS)", percentage: 50 },
                 { name: "Software Development", percentage: 75 },
-                { name: "Database Management", percentage: 70 }
+                { name: "Database Management", percentage: 55 }
               ].map((skill, index) => (
                 <div key={index}>
                   <div className="flex justify-between mb-1">

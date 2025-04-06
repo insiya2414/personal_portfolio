@@ -3,7 +3,9 @@ export interface ProjectType {
   title: string;
   description: string[];
   tech: string[];
-  link: string;
+  // link: string;
+  link?: string;
+  links?: { name: string; url: string }[];
 }
 
 export interface ExperienceType {
@@ -33,7 +35,14 @@ export interface SkillItemProps {
 }
 
 export interface ProjectCardProps {
-  project: ProjectType;
+  project: {
+    id: number;
+    title: string;
+    description: string[];
+    tech: string[];
+    link?: string;
+    links?: { name: string; url: string }[];
+  };
   index: number;
 }
 

@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { EDUCATION } from "@/lib/constants";
 import SectionTitle from "./SectionTitle";
 import { Award, Calendar, GraduationCap, School } from "lucide-react";
+import txstLogo from "./txst-logo.jpeg";
+
+
 
 const About = () => {
   return (
@@ -53,9 +56,14 @@ const About = () => {
           >
             <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
               <div className="flex items-center mb-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                  <GraduationCap className="h-7 w-7 text-primary" />
-                </div>
+                <div className="w-14 h-14 rounded-full overflow-hidden mr-4">
+                  {/* <GraduationCap className="h-7 w-7 text-primary" /> */}
+                  <img
+                src={txstLogo}
+                alt="Texas State University Logo"
+                className="w-full h-full object-cover rounded-full"
+              />
+              </div>
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-black">{EDUCATION.school}</h3>
                   <p className="text-muted-foreground dark:text-gray-500">{EDUCATION.degree}</p>

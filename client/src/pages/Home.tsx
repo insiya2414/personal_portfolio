@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
-import Coursework from "@/components/Coursework";
 import Projects from "@/components/Projects";
+import Coursework from "@/components/Coursework";
 import Experience from "@/components/Experience";
 import Activities from "@/components/Activities";
 import Contact from "@/components/Contact";
@@ -28,8 +28,8 @@ export default function Home() {
         <Hero />
         <About />
         <Skills />
-        <Coursework />
         <Projects />
+        <Coursework />
         <Experience />
         <Activities />
         <Contact />

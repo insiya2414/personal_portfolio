@@ -1,52 +1,102 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
-import { ProjectCardProps } from "@/lib/types";
+
+interface ProjectCardProps {
+  project: {
+    id: number;
+    title: string;
+    description: string[];
+    tech: string[];
+    link?: string;
+    links?: { name: string; url: string }[];
+  };
+  index: number;
+}
 
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+      className="bg-white border border-gray-100 rounded-lg shadow-md p-6 flex flex-col justify-between"
     >
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-3 text-gray-900">{project.title}</h3>
-        
-        <div className="space-y-2 mb-4">
-          {project.description.map((desc, i) => (
-            <p key={i} className="text-muted-foreground text-sm">{desc}</p>
+      <div>
+        <h3 className="text-xl font-semibold mb-2 text-gray-500">{project.title}</h3>
+        <ul className="list-disc pl-5 text-sm text-muted-foreground mb-4 space-y-1">
+          {project.description.map((point, idx) => (
+            <li key={idx}>{point}</li>
           ))}
-        </div>
-        
-        <div className="flex flex-wrap gap-2 mt-4">
-          {project.tech.map((tech, i) => (
+        </ul>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tech.map((tech, idx) => (
             <span
-              key={i}
-              className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+              key={idx}
+              className="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full"
             >
               {tech}
             </span>
           ))}
         </div>
       </div>
-      
-      <div className="border-t border-gray-100 px-6 py-3 bg-gray-50 flex justify-end">
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-primary hover:text-primary/80 flex items-center text-sm"
+      {/* Link Section */}
+{project.link && (
+  <div className="border-t border-gray-100 mt-auto pt-4 flex justify-end">
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center text-sm text-primary font-medium hover:text-primary/80 transition"
+    >
+      View Project
+      <svg
+        className="ml-2 w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M17 8l4 4m0 0l-4 4m4-4H3"
+        />
+      </svg>
+    </a>
+  </div>
+)}
+
+{project.links && project.links.length > 0 && (
+  <div className="border-t border-gray-100 mt-4 pt-4 space-y-1">
+    {project.links.map((linkObj, idx) => (
+      <a
+        key={idx}
+        href={linkObj.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center text-sm text-primary font-medium hover:text-primary/80 transition"
+      >
+        {linkObj.name}
+        <svg
+          className="ml-2 w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {project.link.includes("github") ? (
-            <Github className="h-4 w-4 mr-2" />
-          ) : (
-            <ExternalLink className="h-4 w-4 mr-2" />
-          )}
-          View Project
-        </a>
-      </div>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+        </svg>
+      </a>
+    ))}
+  </div>
+)}
+
     </motion.div>
   );
 };
