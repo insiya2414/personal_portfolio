@@ -58,46 +58,6 @@ const Contact = () => {
     }
   };
   
-
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-
-  //   try {
-  //     // Simple form validation
-  //     if (!formData.name || !formData.email || !formData.message) {
-  //       throw new Error("Please fill in all fields");
-  //     }
-
-  //     // In a real implementation, this would submit to an API
-  //     // await apiRequest("POST", "/api/contact", formData);
-
-  //     // Simulate API call with timeout
-  //     await new Promise(resolve => setTimeout(resolve, 1000));
-
-  //     toast({
-  //       title: "Message sent!",
-  //       description: "Thank you for reaching out. I'll get back to you soon.",
-  //       variant: "default",
-  //     });
-
-  //     // Reset form
-  //     setFormData({
-  //       name: "",
-  //       email: "",
-  //       message: "",
-  //     });
-  //   } catch (error) {
-  //     toast({
-  //       title: "Error",
-  //       description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
-  //       variant: "destructive",
-  //     });
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
-
   return (
     <section id="contact" className="section dark:text-gray-500">
       <div className="container-custom">

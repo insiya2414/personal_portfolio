@@ -157,52 +157,40 @@ const Hero = () => {
 
           {/* Image illustration */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="w-full md:w-2/5 flex justify-center"
-          >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 pointer-events-none">
-              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 -z-10">
-                <path
-                  fill="#4F56E5"
-                  d="M45.9,-60.8C58.5,-51.3,67.3,-37,70.2,-22.1C73,-7.1,69.8,8.4,63.8,22.3C57.8,36.2,49,48.4,37,56.8C25.1,65.1,10,69.6,-4.3,74.7C-18.6,79.8,-32.1,85.6,-46.4,80.9C-60.7,76.3,-75.7,61.2,-81.4,44.3C-87.1,27.3,-83.4,8.4,-78.6,-8.9C-73.7,-26.2,-67.7,-41.8,-56.4,-52.1C-45.1,-62.4,-28.6,-67.3,-13,-64.5C2.7,-61.7,33.3,-70.3,45.9,-60.8Z"
-                  transform="translate(100 100)"
-                />
-              </svg>
-              <div className="w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg">
-                {/* Tech-themed profile avatar */}
-                <div className="w-full h-full bg-gradient-to-br from-primary to-indigo-700 dark:from-cyan-500 dark:to-blue-800 flex items-center justify-center text-white dark:text-cyan-100 relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-full h-full absolute opacity-20">
-                      {/* Binary code background pattern */}
-                      <div className="absolute text-[10px] font-mono text-white/70 top-1/4 left-1/4">01001001 01010010</div>
-                      <div className="absolute text-[10px] font-mono text-white/70 bottom-1/4 right-1/4">10101010</div>
-                      <div className="absolute text-[10px] font-mono text-white/70 bottom-1/3 left-1/3">01001001</div>
-                    </div>
-                  </div>
-                  
-                  {/* Animated border effect */}
-                  <div className="absolute inset-0 rounded-full overflow-hidden z-20">
-                    <div
-                      className="absolute inset-0 animate-spin-slow rounded-full"
-                      style={{
-                        border: '4px dashed rgba(255,255,255,0.5)',
-                        animationDuration: '20s'
-                      }}
-                    ></div>
-                  </div>
-                  
-                  {/* <span className="text-6xl font-bold relative z-10">IR</span> */}
-                  <img
-                      src={profileImage}
-                      alt="Insiya Maad Raja"
-                      className="absolute inset-0 w-full h-full object-cover rounded-full z-10 pointer-events-auto"
-                    />
-                </div>
-              </div>
-            </div>
-          </motion.div>
+  initial={{ opacity: 0, x: 50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+  className="w-full md:w-2/5 flex justify-center"
+>
+  <div className="relative w-64 h-64 md:w-80 md:h-80 pointer-events-none">
+    {/* Background blob */}
+    <svg
+      viewBox="0 0 200 200"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute inset-0 -z-10"
+    >
+      <path
+        fill="#4F56E5"
+        d="M45.9,-60.8C58.5,-51.3,67.3,-37,70.2,-22.1C73,-7.1,69.8,8.4,63.8,22.3C57.8,36.2,49,48.4,37,56.8C25.1,65.1,10,69.6,-4.3,74.7C-18.6,79.8,-32.1,85.6,-46.4,80.9C-60.7,76.3,-75.7,61.2,-81.4,44.3C-87.1,27.3,-83.4,8.4,-78.6,-8.9C-73.7,-26.2,-67.7,-41.8,-56.4,-52.1C-45.1,-62.4,-28.6,-67.3,-13,-64.5C2.7,-61.7,33.3,-70.3,45.9,-60.8Z"
+        transform="translate(100 100)"
+      />
+    </svg>
+
+    {/* Image container */}
+    <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg z-10">
+      {/* Animated spinning ring */}
+      <div className="absolute inset-0 animate-spin-slow rounded-full pointer-events-none" style={{ border: '4px dashed rgba(255,255,255,0.5)', animationDuration: '20s' }}></div>
+
+      {/* Your Profile Image */}
+      <img
+        src={profileImage}
+        alt="Insiya Maad Raja"
+        className="w-full h-full object-cover object-top rounded-full"
+      />
+    </div>
+  </div>
+</motion.div>
+
         </div>
 
         {/* Scroll indicator */}
