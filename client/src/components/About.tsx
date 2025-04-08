@@ -24,10 +24,10 @@ const About = () => {
             transition={{ duration: 0.5 }}
             className="w-full md:w-1/2"
           >
-            <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-black">
+            <h3 className="text-2xl font-semibold mb-4 text-gray-700 dark:text-black">
               Aspiring Data Scientist & Software Engineer
             </h3>
-            <div className="space-y-4 text-muted-foreground">
+            <div className="space-y-4 text-muted-foreground dark:text-gray-600">
               <p>
                 I'm a Computer Science student at Texas State University with a passion for data science, 
                 machine learning, and AI. Throughout my academic journey, I've focused on developing strong 
@@ -39,9 +39,9 @@ const About = () => {
                 solve real-world problems.
               </p>
               <p>
-                I'm continuously learning and expanding my technical skills to stay at the forefront of 
-                technological innovation. I'm particularly interested in healthcare analytics, sustainable 
-                technology, and AI for social good.
+              I'm always excited to explore new technologies and tackle complex challenges. With every project, 
+              I strive to grow not just as a developer, but as a problem-solver eager to make a meaningful impact. 
+              I'm driven by curiosity, a passion for innovation, and the desire to keep pushing the boundaries of what's possible.
               </p>
             </div>
           </motion.div>

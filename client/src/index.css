@@ -317,21 +317,23 @@
       transform: rotate(360deg);
     }
   }
-  
-  /* Code typing effect */
   .typing-effect {
-    width: 29ch;
-    animation: typing 4s steps(29), blink .5s step-end infinite alternate;
+    animation: typing 4s steps(30), blink 0.5s step-end infinite alternate;
+    border-right: 2px solid;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid;
+    display: inline-block;
+    width: 23ch; /* You can increase or decrease this slightly */
+    vertical-align: bottom; /* Helps avoid scrollbar */
   }
-
+  
   @keyframes typing {
     from { width: 0 }
+    to { width: 23ch }
   }
-      
+  
   @keyframes blink {
     50% { border-color: transparent }
   }
+  
 }

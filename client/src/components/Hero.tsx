@@ -77,17 +77,23 @@ const Hero = () => {
               <span className="gradient-tech glitch-effect text-glow" data-text="Insiya Raja">Insiya Raja</span>
               <span className="absolute -bottom-6 right-0 md:right-4 text-base text-primary/80 font-mono tracking-wider">&lt;/developer&gt;</span>
             </h1>
-            
             <motion.h2 
-              className="text-2xl md:text-3xl font-medium mb-6 mt-8 flex flex-wrap items-center gap-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              <span className="matrix-code neo-brutalism p-1 text-cyan-700 dark:text-cyan-400 bg-slate-100/80 dark:bg-slate-800/80">Computer Science Student</span>
-              <span className="mx-1">&</span>
-              <span className="typing-effect text-primary font-semibold" style={{width: "29ch"}}>Aspiring Data Scientist</span>
-            </motion.h2>
+  className="text-2xl md:text-3xl font-semibold mb-6 mt-8 flex items-center gap-4 overflow-hidden whitespace-nowrap"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+>
+  <span className="matrix-code neo-brutalism px-3 py-2 text-cyan-700 dark:text-cyan-400 bg-slate-100/80 dark:bg-slate-800/80 text-xl md:text-3xl">
+    CS Major
+  </span>
+
+  <span className="text-xl md:text-2xl font-normal">&</span>
+
+  <span className="typing-effect font-bold text-purple-500 text-xl md:text-3xl w-auto">
+    Aspiring Data Scientist
+  </span>
+</motion.h2>
+
             
             <motion.p 
               className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto md:mx-0 relative"

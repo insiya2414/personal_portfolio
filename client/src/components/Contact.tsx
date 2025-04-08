@@ -30,15 +30,16 @@ const Contact = () => {
         throw new Error("Please fill in all fields");
       }
   
-      const res = await fetch("/api/contact", {
+      // 🔥 Real API call to your Express backend
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
   
-      const data = await res.json();
+      const data = await response.json();
   
-      if (!res.ok) throw new Error(data.message || "Something went wrong");
+      if (!response.ok) throw new Error(data.message || "Something went wrong");
   
       toast({
         title: "Message sent!",
@@ -46,17 +47,20 @@ const Contact = () => {
       });
   
       setFormData({ name: "", email: "", message: "" });
-  
     } catch (error) {
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Something went wrong",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Failed to send message. Please try again.",
         variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
+  
   
   return (
     <section id="contact" className="section dark:text-gray-500">

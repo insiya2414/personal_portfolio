@@ -68,14 +68,14 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
 )}
 
 {project.links && project.links.length > 0 && (
-  <div className="border-t border-gray-100 mt-4 pt-4 space-y-1">
+  <div className="border-t border-gray-100 mt-4 pt-4 flex flex-wrap gap-x-6 gap-y-2">
     {project.links.map((linkObj, idx) => (
       <a
         key={idx}
         href={linkObj.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center text-sm text-primary font-medium hover:text-primary/80 transition"
+        className="w-1/3 inline-flex items-center text-sm text-primary font-medium hover:text-primary/80 transition whitespace-nowrap"
       >
         {linkObj.name}
         <svg
@@ -96,6 +96,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
     ))}
   </div>
 )}
+
 
     </motion.div>
   );

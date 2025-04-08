@@ -23,8 +23,8 @@ export const EDUCATION = {
     "TXST Distinguished Scholarship (four-year, top 25% incoming freshman)",
     "Consistently featured on the Dean's List",
     "Alpha Lambda Delta Honors Society (top 20%)",
-    "Computer Science Academic Excellence Award",
     "Michael Austin Moore Endowed Award",
+    "Computer Science Academic Excellence Award",
     "Alpha Lambda Delta Academic Excellence Award "
   ]
 };
@@ -139,7 +139,7 @@ export const PROJECTS = [
       "Analyzed ~1000 patient records, leveraging EDA, feature visualization, and correlation analysis for variable selection."
     ],
     tech: ["Machine Learning", "Python", "Random Forest", "SVM", "KNN"],
-    link: "https://www.kaggle.com/"
+    link: "https://www.kaggle.com/code/insiyaraja/diabetes"
   },
   {
     id: 4,
@@ -149,11 +149,11 @@ export const PROJECTS = [
       "Developed interactive charts, graphs, and KPIs to highlight trends, identify top-selling pizza's, and track customer sales preferences."
     ],
     tech: ["Power BI", "Tableau", "Data Visualization", "Dashboard Design"],
-    link:[
+    links:[
       { name: "Netflix Dashboard", url: "https://public.tableau.com/app/profile/insiya.maad.raja/viz/NetflixDashboard_17058899470880/NETFLIX" },
       { name: "Stock Market Dashboard", url: "https://public.tableau.com/app/profile/insiya.maad.raja/viz/StockMarketDashboard_17059488914780/Dashboard1" },
       { name: "Pizza Sales Dashboard", url: "https://drive.google.com/file/d/12OgYuhqgF-zdnElWep0awyU4vNoFvWQ4/view?pli=1" },
-      { name: "Customer Preferences Dashboard", url: "https://drive.google.com/file/d/1-pz8tRENVz3cxCk9I5x00_d3dsj6LA3K/view" }
+      { name: "Customer Sales Dashboard", url: "https://drive.google.com/file/d/1-pz8tRENVz3cxCk9I5x00_d3dsj6LA3K/view" }
     ]
   },
   {
@@ -177,17 +177,17 @@ export const PROJECTS = [
     ],
     tech: ["React", "Firebase", "Google Weather/Calender API", "Open AI", "Jira"],
     link: "https://www.linkedin.com/posts/insiya-raja24_vacayyourway-travelsimplified-teameffort-activity-7192560903853113344-WLd2?utm_source=share&utm_medium=member_desktop&rcm=ACoAACyMfI4BTHJd7sTDriq4MmQOZBnk8MLNPeo"
-  },
-  {
-    id: 7,
-    title: "Diabetes Prediction Using ML Models",
-    description: [
-      "Engineered a robust diabetes prediction model on Kaggle, showcasing expertise in feature engineering and algorithmic selection.",
-      "Conducted end-to-end analysis, utilizing advanced ML techniques for accurate diabetes diagnosis with a notable accuracy rate of 82% via the Random Forest Model."
-    ],
-    tech: ["Python", "Exploratory Data Analysis", "Model Building", "Kaggle"],
-    link: "#"
   }
+  // {
+  //   id: 7,
+  //   title: "Diabetes Prediction Using ML Models",
+  //   description: [
+  //     "Engineered a robust diabetes prediction model on Kaggle, showcasing expertise in feature engineering and algorithmic selection.",
+  //     "Conducted end-to-end analysis, utilizing advanced ML techniques for accurate diabetes diagnosis with a notable accuracy rate of 82% via the Random Forest Model."
+  //   ],
+  //   tech: ["Python", "Exploratory Data Analysis", "Model Building", "Kaggle"],
+  //   link: "https://www.kaggle.com/code/insiyaraja/diabetes"
+  // }
 
 ];
 
