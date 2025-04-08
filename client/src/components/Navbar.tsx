@@ -136,9 +136,9 @@ const Navbar = () => {
                 className="py-2 px-4"
                 onClick={handleLinkClick}
               >
-                <Button variant="outline" size="sm" className="w-full">
+                {/* <Button variant="outline" size="sm" className="w-full">
                   Resume
-                </Button>
+                </Button> */}
               </a>
             </div>
           </motion.div>
