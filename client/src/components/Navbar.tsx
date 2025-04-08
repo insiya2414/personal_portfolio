@@ -41,7 +41,7 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/">
+          {/* <Link href="#home">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -50,7 +50,18 @@ const Navbar = () => {
             >
               <h1 className="text-xl font-bold gradient-text">Insiya Raja</h1>
             </motion.div>
-          </Link>
+          </Link> */}
+          <a href="#home" className="cursor-pointer">
+  <motion.div
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.5 }}
+    className="flex items-center"
+  >
+    <h1 className="text-xl font-bold gradient-text">Insiya Raja</h1>
+  </motion.div>
+</a>
+
 
           {/* Desktop Navigation */}
           <motion.nav
